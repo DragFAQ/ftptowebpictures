@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/files")
 @EnableAutoConfiguration
 public class FileController {
+
     @GetMapping(value = {"", "/"})
     @ResponseBody
     public String home() {
