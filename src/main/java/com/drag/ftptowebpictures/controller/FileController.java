@@ -16,10 +16,10 @@ import java.util.List;
 public class FileController {
 
     @Autowired
-    DataSource dataSource;
+    private DataSource dataSource;
 
     @Autowired
-    FileRepository fileRepository;
+    private FileRepository fileRepository;
 
     @GetMapping(value = {"", "/"})
     @ResponseBody
