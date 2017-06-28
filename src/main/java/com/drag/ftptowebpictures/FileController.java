@@ -7,22 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/files")
 @EnableAutoConfiguration
 public class FileController {
-/*
-    private FileService fileService;
-
-    public FileController(FileService fileService) {
-        this.fileService = fileService;
-    }
-*/
     @GetMapping(value = {"", "/"})
     @ResponseBody
-    String home() {
+    public String home() {
         return "Hello World!";
     }
 
