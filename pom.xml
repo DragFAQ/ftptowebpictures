@@ -78,6 +78,11 @@
             <version>42.0.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.kie.modules</groupId>
+            <artifactId>org-apache-commons-net</artifactId>
+            <version>6.5.0.Final</version>
+        </dependency>
     </dependencies>
 
     <build>

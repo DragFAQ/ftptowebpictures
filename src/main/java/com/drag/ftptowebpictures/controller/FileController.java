@@ -2,12 +2,11 @@ package com.drag.ftptowebpictures.controller;
 
 import com.drag.ftptowebpictures.dao.FileRepository;
 import com.drag.ftptowebpictures.model.File;
+import com.drag.ftptowebpictures.model.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 import java.util.List;
 
@@ -25,6 +24,12 @@ public class FileController {
     @ResponseBody
     public String home() {
         return "Hello World!";
+    }
+
+    @PostMapping("/login")
+    public LoginResponse login(HttpServletRequest request) {
+        return fileRepository.login(request.getParameter("login"), request.getParameter("password")) ?
+                LoginResponse.LOGGED_IN : LoginResponse.ERROR;
     }
 
     @GetMapping("/all")

@@ -1,6 +1,7 @@
 package com.drag.ftptowebpictures.dao;
 
 import com.drag.ftptowebpictures.model.File;
+import com.drag.ftptowebpictures.util.ftp.CheckLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -26,5 +27,9 @@ public class FileRepository {
         return jdbcTemplate.query("SELECT id, name, path, size FROM files",
                 (rs, rowNum) -> new File(rs.getInt("id"), rs.getString("name"),
                         rs.getString("path"), rs.getInt("size")));
+    }
+
+    public boolean login(String login, String password) {
+        return CheckLogin.login(login, password);
     }
 }
