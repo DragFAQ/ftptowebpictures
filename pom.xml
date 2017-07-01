@@ -79,9 +79,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.kie.modules</groupId>
-            <artifactId>org-apache-commons-net</artifactId>
-            <version>6.5.0.Final</version>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.6</version>
         </dependency>
     </dependencies>
 

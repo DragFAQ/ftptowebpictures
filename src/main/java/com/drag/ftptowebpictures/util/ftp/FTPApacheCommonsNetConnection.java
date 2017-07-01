@@ -5,14 +5,13 @@ import org.apache.commons.net.ftp.FTPClient;
 
 import java.io.IOException;
 
-public class CheckLogin {
-
-    private final static String SERVER = "dragfaq.ddns.net";
-
-    public static boolean login(String login, String password) {
+public class FTPApacheCommonsNetConnection extends AbstractFTPConnection {
+    
+    @Override
+    public boolean checkLogin(String login, String password) {
         Boolean result = false;
 
-        String server = CheckLogin.SERVER;
+        String server = SERVER;
         int port = 21;
         String user = login;
         String pass = password;
@@ -20,7 +19,7 @@ public class CheckLogin {
         FTPClient ftpClient = new FTPClient();
         try {
             ftpClient.connect(server, port);
-            if( ftpClient.login(user, password) ) {
+            if( ftpClient.login(user, pass) ) {
                 ftpClient.enterLocalPassiveMode();
                 if( ftpClient.setFileType(FTP.BINARY_FILE_TYPE) )
                     result = true;

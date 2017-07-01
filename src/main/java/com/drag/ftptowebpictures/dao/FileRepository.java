@@ -1,7 +1,8 @@
 package com.drag.ftptowebpictures.dao;
 
 import com.drag.ftptowebpictures.model.File;
-import com.drag.ftptowebpictures.util.ftp.CheckLogin;
+import com.drag.ftptowebpictures.util.ftp.FTPConnection;
+import com.drag.ftptowebpictures.util.ftp.FTPConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -30,6 +31,6 @@ public class FileRepository {
     }
 
     public boolean login(String login, String password) {
-        return CheckLogin.login(login, password);
+        return FTPConnectionFactory.getFTPConnection().checkLogin(login, password);
     }
 }
