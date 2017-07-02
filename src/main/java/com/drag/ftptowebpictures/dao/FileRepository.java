@@ -1,7 +1,6 @@
 package com.drag.ftptowebpictures.dao;
 
 import com.drag.ftptowebpictures.model.File;
-import com.drag.ftptowebpictures.util.ftp.FTPConnection;
 import com.drag.ftptowebpictures.util.ftp.FTPConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
