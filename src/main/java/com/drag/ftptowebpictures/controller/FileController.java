@@ -6,16 +6,11 @@ import com.drag.ftptowebpictures.model.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.sql.DataSource;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/files")
 public class FileController {
-
-    @Autowired
-    private DataSource dataSource;
 
     @Autowired
     private FileRepository fileRepository;
@@ -27,9 +22,8 @@ public class FileController {
     }
 
     @PostMapping("/login")
-    public LoginResponse login(HttpServletRequest request) {
-        return fileRepository.login(request.getParameter("login"), request.getParameter("password")) ?
-                LoginResponse.LOGGED_IN : LoginResponse.ERROR;
+    public LoginResponse login(@PathVariable("login") String login, @PathVariable("password") String password) {
+        return fileRepository.login(login, password) ? LoginResponse.LOGGED_IN : LoginResponse.ERROR;
     }
 
     @GetMapping("/all")
