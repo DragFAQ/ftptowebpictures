@@ -15,9 +15,7 @@
         <appender-ref ref="STDOUT"/>
     </logger>
 
-    <logger name="com.mkyong" level="error" additivity="false">
-        <appender-ref ref="STDOUT"/>
-    </logger>
+    <logger name="org.springframework.web.servlet" level="debug"/>
 
     <root level="error">
         <appender-ref ref="STDOUT"/>
