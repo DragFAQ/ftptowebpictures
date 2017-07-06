@@ -3,8 +3,14 @@ package com.drag.ftptowebpictures.dao;
 import com.drag.ftptowebpictures.model.File;
 import com.drag.ftptowebpictures.util.ftp.FTPConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Base64;
 
 import java.util.List;
 
@@ -23,13 +29,33 @@ public class FileRepository {
         return null;//DataAccessUtils.singleResult(users);
     }
 
-    public List<File> getAll() {
-        return jdbcTemplate.query("SELECT id, name, path, size FROM files",
-                (rs, rowNum) -> new File(rs.getInt("id"), rs.getString("name"),
-                        rs.getString("path"), rs.getInt("size")));
+    public List<File> getAllByPath(String path) {
+        return jdbcTemplate.query("SELECT * FROM files where path=?",
+                new FileMapper(), path);
     }
 
     public boolean login(String login, String password) {
         return FTPConnectionFactory.getFTPConnection().checkLogin(login, password);
+    }
+
+    public byte[] getImageFromDatabase(String imageId) {
+        List<File> files = jdbcTemplate.query("SELECT * FROM files where id=?", new FileMapper(), Integer.parseInt(imageId));
+
+        return DataAccessUtils.singleResult(files).getThumbnail();
+    }
+
+    private static final class FileMapper implements RowMapper<File> {
+        @Override
+        public File mapRow(ResultSet rs, int rowNum) throws SQLException {
+            File file = new File();
+
+            file.setId(rs.getInt("id"));
+            file.setName(rs.getString("name"));
+            file.setPath(rs.getString("path"));
+            file.setSize(rs.getInt("size"));
+            file.setThumbnail(Base64.getDecoder().decode(rs.getString("thumbnail")));
+
+            return file;
+        }
     }
 }

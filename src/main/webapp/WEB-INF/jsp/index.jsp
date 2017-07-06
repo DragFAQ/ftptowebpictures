@@ -5,6 +5,12 @@
 <html>
 <head>
     <title>FtpToWebPictures</title>
+    <form method="post">
+        <input type="text" name="login"><br />
+        <input type="password" name="password"><br />
+        <button type="submit" formaction="/login">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="submit" formaction="/reindex">Reindex</button>
+    </form>
 </head>
 <body>
 

@@ -10,12 +10,7 @@ public class File {
 
     private int size;
 
-    public File(Integer id, String name, String path, int size) {
-        this.id = id;
-        this.name = name;
-        this.path = path;
-        this.size = size;
-    }
+    private byte[] thumbnail;
 
     public Integer getId() {
         return id;
@@ -47,6 +42,14 @@ public class File {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public byte[] getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(byte[] thumbnail) {
+        this.thumbnail = thumbnail;
     }
 
     @Override

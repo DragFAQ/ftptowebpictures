@@ -8,7 +8,8 @@ CREATE TABLE files
   id   INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
   name TEXT,
   path TEXT,
-  size INTEGER
+  size INTEGER,
+  thumbnail TEXT
 );
 
 
