@@ -4,3 +4,8 @@ target
 *.iml
 log
 *.patch
+.settings
+.mvn
+.project
+mvnw
+mvnw.cmd

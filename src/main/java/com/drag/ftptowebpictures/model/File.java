@@ -1,64 +1,73 @@
 package com.drag.ftptowebpictures.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class File {
 
-    private Integer id;
+	public File() {
+	}
 
-    private String name;
+	public File(String name, String path, int size) {
+		super();
+		this.name = name;
+		this.path = path;
+		this.size = size;
+	}
 
-    private String path;
+	private Long id;
 
-    private int size;
+	private String name;
 
-    private byte[] thumbnail;
+	private String path;
 
-    public Integer getId() {
-        return id;
-    }
+	private int size;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	private byte[] thumbnail;
 
-    public String getName() {
-        return name;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getId() {
+		return id;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getPath() {
-        return path;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setPath(String path) {
-        this.path = path;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public int getSize() {
-        return size;
-    }
+	public String getPath() {
+		return path;
+	}
 
-    public void setSize(int size) {
-        this.size = size;
-    }
+	public void setPath(String path) {
+		this.path = path;
+	}
 
-    public byte[] getThumbnail() {
-        return thumbnail;
-    }
+	public int getSize() {
+		return size;
+	}
 
-    public void setThumbnail(byte[] thumbnail) {
-        this.thumbnail = thumbnail;
-    }
+	public void setSize(int size) {
+		this.size = size;
+	}
 
-    @Override
-    public String toString() {
-        return "File{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", path='" + path + '\'' +
-                ", size=" + size +
-                '}';
-    }
+	public byte[] getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(byte[] thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+
 }

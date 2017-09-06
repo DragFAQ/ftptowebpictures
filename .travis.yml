@@ -7,15 +7,10 @@ cache:
   directories:
   - $HOME/.m2
 
-# https://docs.travis-ci.com/user/database-setup/#PostgreSQL
-before_script:
-  - psql -c 'create database ftppictures' -U postgres
-  - psql -c 'create user "user"; grant all privileges on database ftppictures to "user"' -U postgres
-
 # https://docs.travis-ci.com/user/customizing-the-build#Building-Specific-Branches
 branches:
   only:
-  - master
+  - sts
 
 # https://docs.travis-ci.com/user/notifications#Configuring-email-notifications
 #notifications:
