@@ -1,4 +1,4 @@
-package com.drag.ftptowebpictures.FileRepository;
+package com.drag.ftptowebpictures.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

@@ -8,16 +8,6 @@ import javax.persistence.Id;
 @Entity
 public class File {
 
-	public File() {
-	}
-
-	public File(String name, String path, int size) {
-		super();
-		this.name = name;
-		this.path = path;
-		this.size = size;
-	}
-
 	private int id;
 
 	private String name;
@@ -27,6 +17,16 @@ public class File {
 	private int size;
 
 	private byte[] thumbnail;
+
+	public File() {
+	}
+
+	public File(String name, String path, int size) {
+		super();
+		this.name = name;
+		this.path = path;
+		this.size = size;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

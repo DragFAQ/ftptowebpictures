@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.drag.ftptowebpictures.model.File;
 
-import com.drag.ftptowebpictures.FileRepository.FileRepository;
+import com.drag.ftptowebpictures.repository.FileRepository;
 
 @SpringBootApplication
 public class FtptowebpicturesApplication implements CommandLineRunner {
