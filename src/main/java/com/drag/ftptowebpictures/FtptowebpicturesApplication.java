@@ -36,7 +36,10 @@ public class FtptowebpicturesApplication implements CommandLineRunner {
 		final File file3 = new File("File3", "folder2", 1);
 		final File file4 = new File("File4", "folder2", 5);
 		
-		fileRepository.save(new HashSet<File>() {{
+		fileRepository.save(new HashSet<File>() {
+			private static final long serialVersionUID = 1L;
+
+		{
 			add(file1);
 			add(file2);
 			add(file3);

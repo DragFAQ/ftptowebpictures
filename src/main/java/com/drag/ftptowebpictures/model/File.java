@@ -18,7 +18,7 @@ public class File {
 		this.size = size;
 	}
 
-	private Long id;
+	private int id;
 
 	private String name;
 
@@ -30,11 +30,11 @@ public class File {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
