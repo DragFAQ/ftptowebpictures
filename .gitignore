@@ -7,3 +7,5 @@ log
 .settings
 .mvn
 .project
+mvnw
+mvnw.cmd
