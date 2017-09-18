@@ -18,7 +18,7 @@ import com.drag.ftptowebpictures.model.File;
 import com.drag.ftptowebpictures.service.FileService;
 
 @RestController
-public class FileController {
+public class FileRestController {
 	
     @Autowired
     FileService fileService;

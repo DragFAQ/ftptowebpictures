@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.drag</groupId>
-	<artifactId>ftptowebpictures</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>FtpToWebPictures</artifactId>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>ftptowebpictures</name>
-	<description>Web viewer for photos on the ftp storage</description>
+	<name>FTP To Web Pictures</name>
+	<description>Web viewer for photos on the FTP storage</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<h2.version>1.4.187</h2.version>
 	</properties>
 
 	<dependencies>
@@ -60,6 +61,19 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 		</dependency>
+		
+		<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-jasper</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+    </dependency>
 	</dependencies>
 
 	<build>
@@ -68,16 +82,14 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-		</plugins>
+    </plugins>
 	</build>
-
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
-				<version>${spring.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
